@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Earthquake Magnitude Predictor</title>
+
+  
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h2>Earthquake Magnitude Predictor</h2>
+    <form action="/predict" method="post">
+      <label>Latitude:</label>
+      <input type="number" step="any" name="latitude" id="latitude" min="-90" max="90" required>
+
+      <label>Longitude:</label>
+      <input type="number" step="any" name="longitude" id="longitude" min="-180" max="180" required>
+
+      <label>Country:</label>
+      <input type="text" name="country" id="country" readonly required>
+
+      <label>Depth (km):</label>
+      <input type="number" step="any" name="depth" required>
+
+      <label>Magnitude Type:</label>
+      <select name="magType" id="magType" required>
+        <option value="" disabled selected>Select Magnitude Type</option>
+        <option value="mb">mb</option>
+        <option value="mw">mw</option>
+        <option value="mwc">mwc</option>
+        <option value="mww">mww</option>
+        <option value="ml">ml</option>
+        <option value="mwb">mwb</option>
+        <option value="mwr">mwr</option>
+        <option value="uk">uk</option>
+        <option value="fa">fa</option>
+        <option value="mh">mh</option>
+        <option value="m">m</option>
+        <option value="mwp">mwp</option>
+        <option value="ms_20">ms_20</option>
+        <option value="mc">mc</option>
+        <option value="lg">lg</option>
+        <option value="mint">mint</option>
+        <option value="mb_lg">mb_lg</option>
+        <option value="ma">ma</option>
+        <option value="mlg">mlg</option>
+        <option value="MI">MI</option>
+        <option value="Md">Md</option>
+    </select>
+    
+
+      <label>Number of Stations (nst):</label>
+      <input type="number" step="any" name="nst" min="0" max="1000" required>
+
+      <label>Gap:</label>
+      <input type="number" step="any" name="gap" min="0" max="500" required>
+
+      <label>Distance to Nearest Station (dmin):</label>
+      <input type="number" step="any" name="dmin" min="0" required>
+
+      <label>RMS(Root Mean Square):</label>
+      <input type="number" step="any" name="rms" min="0" required>
+
+      <label>Year:</label>
+      <select name="year" required>
+        <option value="" disabled selected>Select Year</option>
+        {% for yr in range(1900, 2035) %}
+          <option value="{{ yr }}">{{ yr }}</option>
+        {% endfor %}
+      </select>
+
+      <label>MagNst:</label>
+      <input type="number" step="any" name="magNst" min="0" required>
+
+      <input type="hidden" name="horizontalError" value="4.7">
+      <input type="hidden" name="magError" value="0.276">
+
+      <button type="submit">Predict</button>
+    </form>
+
+    <h3>Select Earthquake Location on Map</h3>
+    <div id="map"></div>
+  </div>
+
+  
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <script>
+    const map = L.map('map').setView([20.0, 0.0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © OpenStreetMap contributors'
+    }).addTo(map);
+
+    let marker;
+
+    map.on('click', function(e) {
+      const lat = e.latlng.lat;
+      const lng = e.latlng.lng;
+
+      document.getElementById("latitude").value = lat;
+      document.getElementById("longitude").value = lng;
+
+      fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&addressdetails=1`)
+        .then(res => res.json())
+        .then(data => {
+          const country = data.address.country;
+          document.getElementById("country").value = country;
+          document.getElementById("country").disabled = true;
+        });
+
+      if (marker) {
+        map.removeLayer(marker);
+      }
+      marker = L.marker([lat, lng]).addTo(map);
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+   

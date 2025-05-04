@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Earthquake Magnitude Prediction Result</title>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/result.css') }}">
+</head>
+<body>
+    <div class="container">
+
+        <h1>Prediction Result</h1>
+        <p> {{ prediction_text }}</p>
+        
+        <h3>Input Details:</h3>
+        <ul>
+            <li><strong>Latitude:</strong> {{ latitude }}</li>
+            <li><strong>Longitude:</strong> {{ longitude }}</li>
+            <li><strong>Depth:</strong> {{ depth }}</li>
+            <li><strong>MagType:</strong> {{ magType }}</li>
+            <li><strong>Year:</strong> {{ year }}</li>
+            <li><strong>NST:</strong> {{ nst }}</li>
+            <li><strong>Gap:</strong> {{ gap }}</li>
+            <li><strong>Dmin:</strong> {{ dmin }}</li>
+            <li><strong>RMS:</strong> {{ rms }}</li>
+            <li><strong>MagNst:</strong> {{ magNst }}</li>
+            <li><strong>Horizontal Error:</strong> {{ horizontalError }}</li>
+            <li><strong>Mag Error:</strong> {{ magError }}</li>
+        </ul>
+        
+
+
+        <a href="/">Back</a>
+    </div>
+</body>
+</html>
+
