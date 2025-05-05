@@ -66,7 +66,14 @@ This dataset contains records of significant global earthquakes from 1900 to the
 📊 [Kaggle Dataset](https://www.kaggle.com/datasets/usamabuttar/significant-earthquakes/data)
 
 ---
-## ScreenShots
+## 🖼️ Screenshots
+
+### 🔹 Home Page
+![Home Page](screenshots/homepage.png)
+
+### 🔹 Prediction Output
+![Prediction Page](screenshots/prediction.png)
+
 
 
 
