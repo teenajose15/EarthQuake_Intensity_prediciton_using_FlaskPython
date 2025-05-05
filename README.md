@@ -1,4 +1,4 @@
-# 🌍 Earthquake Magnitude Prediction Web App
+# 🌍 Seismic Analysis and Event Prediction
 
 A Flask-based web application that predicts earthquake magnitude based on historical seismic data, offering real-time insight using machine learning models. Built with a focus on data-driven disaster preparedness 
 and awareness.
