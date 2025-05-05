@@ -64,5 +64,5 @@ This dataset contains records of significant global earthquakes from 1900 to the
 
 ---
 
-## 📁 Project Structure
+
 
