@@ -69,7 +69,7 @@ This dataset contains records of significant global earthquakes from 1900 to the
 ## 🖼️ Screenshots
 
 ### 🔹 Home Page
-![Home Page](screenshots/homepage.png)
+![Home Page]![WhatsApp Image 2025-05-05 at 11 58 51 AM](https://github.com/user-attachments/assets/1e8d92bf-8820-484b-9cd9-5035a7a44097)
 
 ### 🔹 Prediction Output
 ![Prediction Page](screenshots/prediction.png)
