@@ -1,6 +1,9 @@
 # 🌍 Earthquake Magnitude Prediction Web App
 
-A Flask-based web application that predicts earthquake magnitude based on historical seismic data, offering real-time insight using machine learning models. Built with a focus on data-driven disaster preparedness and awareness.
+A Flask-based web application that predicts earthquake magnitude based on historical seismic data, offering real-time insight using machine learning models. Built with a focus on data-driven disaster preparedness ![WhatsApp Image 2025-05-05 at 11 58 51 AM](https://github.com/user-attachments/assets/1e8d92bf-8820-484b-9cd9-5035a7a44097)
+![WhatsApp Image 2025-05-05 at 11 57 33 AM](https://github.com/user-attachments/assets/12186f57-3404-4628-9712-ec0f5a47494d)
+![WhatsApp Image 2025-05-05 at 11 57 13 AM](https://github.com/user-attachments/assets/e76dd111-1049-4a25-a0c6-babb76aacfc5)
+and awareness.
 
 ---
 
@@ -63,6 +66,7 @@ This dataset contains records of significant global earthquakes from 1900 to the
 📊 [Kaggle Dataset](https://www.kaggle.com/datasets/usamabuttar/significant-earthquakes/data)
 
 ---
+## ScreenShots
 
 
 
